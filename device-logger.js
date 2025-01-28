@@ -1,7 +1,7 @@
 async function getDetailedDeviceInfo() {
     const userAgent = navigator.userAgent;
 
-    // Parse User Agent for models / DOESN't WORK
+    // Parse User Agent for models / DOESN't WORK FOR NOW
     let deviceName = "Unknown Device";
     if (/iPhone/i.test(userAgent)) {
         deviceName = "Apple iPhone";
@@ -72,13 +72,13 @@ async function getDetailedDeviceInfo() {
         screenDetails,
         memoryDetails,
         userAgent,
-        currentUrl, // Include the current URL
+        currentUrl,
     };
 }
 
 // Send device info to the server
 getDetailedDeviceInfo().then((details) => {
-    console.log("Collected Device Info:", details); // Debugging
+    console.log("Collected Device Info:", details);
 
     // Send to server
     fetch("/devicelogger/device-log.php", {
